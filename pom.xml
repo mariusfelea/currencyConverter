@@ -59,31 +59,6 @@
 		<artifactId>spring-webmvc</artifactId>
 		<version>3.2.0.RELEASE</version>
 	</dependency>
-	
-	<!-- Tiles -->
-	<dependency>
-		<groupId>org.apache.tiles</groupId>
-		<artifactId>tiles-servlet</artifactId>
-		<version>2.1.2</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>org.apache.tiles</groupId>
-		<artifactId>tiles-core</artifactId>
-		<version>2.1.2</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>org.apache.tiles</groupId>
-		<artifactId>tiles-jsp</artifactId>
-		<version>2.1.2</version>
-	</dependency>
- 		
-	<dependency>
-		<groupId>org.apache.tiles</groupId>
-		<artifactId>tiles-api</artifactId>
-		<version>2.1.2</version>
-	</dependency>
 
 	<!-- JSTL -->
 	<dependency>
@@ -191,12 +166,11 @@
 		<version>3.2.5.RELEASE</version>
 	</dependency>
 	
-	 <!-- Java Mail API -->
-    <dependency>
-	    <groupId>javax.mail</groupId>
-	    <artifactId>mail</artifactId>
-	    <version>1.4.3</version>
-    </dependency>
+	 <dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.6.3</version>
+	</dependency>
     
   </dependencies>
   
@@ -214,7 +188,7 @@
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-war-plugin</artifactId>
 	            <configuration>
-	                <outputDirectory>D:\tomcat\tomcat-9.0.0.32M8\webapps</outputDirectory>
+	                <outputDirectory>C:\tomcat\apache-tomcat-7.0.56\webapps</outputDirectory> <!-- C:\tomcat\apache-tomcat-7.0.56\webapps -->
 	            </configuration>
 	        </plugin>
 		</plugins>

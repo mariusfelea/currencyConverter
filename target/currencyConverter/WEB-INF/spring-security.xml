@@ -10,7 +10,7 @@
 		<intercept-url pattern="/admin**" access="ROLE_USER" />
 		<form-login 
 		    login-page="/login" 
-		    default-target-url="/converter" 
+		    default-target-url="/converterView" 
 			authentication-failure-url="/login?error" 
 			username-parameter="mail"
 			password-parameter="password" />

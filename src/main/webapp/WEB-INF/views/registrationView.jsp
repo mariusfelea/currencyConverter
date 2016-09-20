@@ -29,6 +29,9 @@
 	    	<div class="navbar-header">
 	      		<a class="navbar-brand" >Forex Currency Rates</a>
 	    	</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="http://localhost:8080/currencyConverter/">Home</a></li>
+			</ul>
 	  	</div>
 	</nav>
 	

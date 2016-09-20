@@ -19,6 +19,9 @@
 	    	<div class="navbar-header">
 	      		<a class="navbar-brand" >Forex Currency Rates</a>
 	    	</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="http://localhost:8080/currencyConverter/">Home</a></li>
+			</ul>
 	  	</div>
 	</nav>
 	
@@ -36,6 +39,77 @@
 						<a href="javascript:formSubmit()"> Logout</a></h5>
 				</c:if>
 			</div> 
+		</div>
+		<form:form class="form-horizontal" action="convertAmount" method="POST" modelAttribute="rateConverter">
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="fromCurrency">From Currency:</label>
+				<div class="col-md-4">
+					<form:select path="fromCurrency" id="selectbasic" name="fromCurrency" class="form-control">
+						<option selected>EUR</option>
+						<form:options items="${currencies}" />
+					</form:select>
+				</div>
+	        </div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="city">Amount:</label>  
+				<div class="col-md-4">
+					<form:errors path="amount" cssClass="error"/>
+					<form:input class="form-control input-md" path="amount" type="number" placeholder="Amount"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="toCurrency">To Currency:</label>
+				<div class="col-md-4">
+					<form:select path="toCurrency"  name="toCurrency" class="form-control">
+					<option selected>USD</option>
+					<form:options items="${currencies}" />
+					</form:select>
+				</div>
+	        </div>
+			
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="city">Converted Amount:</label>  
+				<div class="col-md-4">
+					<form:input class="form-control input-md" path="convertedAmount" placeholder="Converted Amount" readonly="true"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="col-md-4 control-label" for="registration"></label>
+			   <div class="col-md-4">
+					<button type="submit" id="registration" class="btn btn-primary form-control input-md">Convert</button>
+			   </div>
+			</div>
+		</form:form>
+		
+		<div>
+			<h2>Converter Rates History</h2>
+			<table class="table table-hover">
+				<thead>
+		    	<tr>
+					<th>User Name</th>
+					<th>From Currency</th>
+					<th>Amount</th>
+					<th>To Currency</th>
+					<th>Converted Amount</th>
+					<th>Date</th>
+		  		</tr>
+				</thead>
+			<tbody>
+			<c:forEach var="rateConverter" items="${getRatesConverter}" varStatus="counter">	
+				<tr>
+					<td></td>
+					<td>${rateConverter.fromCurrency}</td>
+					<td>${rateConverter.amount}</td>
+					<td>${rateConverter.toCurrency}</td>
+					<td>${rateConverter.convertedAmount}</td>
+					<td></td>
+			  	</tr>
+		  	</c:forEach>
+			</tbody>
+		  </table>
 		</div>
 	</div>
 </body>

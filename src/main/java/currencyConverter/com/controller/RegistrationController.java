@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import currencyConverter.com.model.Registration;
@@ -22,11 +21,10 @@ public class RegistrationController {
 	@Autowired
 	private RegistrationService registrationService;
 	
-	@RequestMapping("/registration")
-	public ModelAndView welcomeMessage(@RequestParam(value = "name", required = false) String name) {
+	@RequestMapping("/registrationView")
+	public ModelAndView registrationView() {
 		
 		ModelAndView model = new ModelAndView("registrationView", "registration", new Registration());
-		model.addObject("name", name);
 		model.addObject("countries", CountryEnum.values());
 		return model;
 	}

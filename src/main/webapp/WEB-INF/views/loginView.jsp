@@ -11,10 +11,13 @@
 	    	<div class="navbar-header">
 	      		<a class="navbar-brand" >Forex Currency Rates</a>
 	    	</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="http://localhost:8080/currencyConverter/">Home</a></li>
+			</ul>
 	    	<div class="collapse navbar-collapse" id="myNavbar">
 	      		<ul class="nav navbar-nav navbar-right">
 	        		<li></li>
-					<li><a href="registration?name=registrationView"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="registrationView"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	      		</ul>
 	    	</div>
 	  	</div>

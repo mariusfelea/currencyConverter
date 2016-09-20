@@ -15,12 +15,10 @@ public class LoginController {
 	public static final String ERROR_LOGIN = "Invalid username and password!";
 	public static final String MESSAGE_LOGIN = "You've been logged out successfully.";
 	
-	@RequestMapping("/welcomeToLogin")
-	public ModelAndView welcomeMessage(@RequestParam(value = "name", required = false) String name, 
-			@ModelAttribute("registration") Registration registration) {
+	@RequestMapping("/loginView")
+	public ModelAndView loginView(@ModelAttribute("registration") Registration registration) {
 		
 		ModelAndView view = new ModelAndView("loginView");
-		view.addObject("name", name);
 		return view;
 	}
 	

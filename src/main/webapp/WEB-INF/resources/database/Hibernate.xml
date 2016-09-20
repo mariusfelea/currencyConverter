@@ -22,6 +22,7 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
     <property name="annotatedClasses">
 	<list>
 		<value>currencyConverter.com.model.Registration</value>
+		<value>currencyConverter.com.model.RateConverter</value>
 	</list>
     </property>
  
