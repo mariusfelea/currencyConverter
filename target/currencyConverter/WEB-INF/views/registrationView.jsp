@@ -36,21 +36,13 @@
 	</nav>
 	
 	<div class="container">
-	<form:form class="form-horizontal" action="addRegistration" method="POST" modelAttribute="registration">
-	<form:hidden path="id" />
+	<form:form class="form-horizontal" action="addRegistration" method="POST" modelAttribute="user">
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="name">Name:</label>  
+			<label class="col-md-4 control-label" for="mail">Mail:</label>  
 			<div class="col-md-4">
-				<form:errors path="name" cssClass="error"/>
-				<form:input class="form-control input-md" path="name" id="name" placeholder="Name"/>
-			</div>
-		</div>
-		
-		<div class="form-group">
-			<label class="col-md-4 control-label" for="mail">E-mail:</label>  
-			<div class="col-md-4">
+				${errorMailDoubled}
 				<form:errors path="mail" cssClass="error"/>
-				<form:input class="form-control input-md" path="mail" id="mail" placeholder="E-mail"/>
+				<form:input class="form-control input-md" path="mail" placeholder="Mail"/>
 			</div>
 		</div>
 		
@@ -58,16 +50,24 @@
 			<label class="col-md-4 control-label" for="password">Password:</label>  
 			<div class="col-md-4">
 				<form:errors path="password" cssClass="error"/>
-				<form:input class="form-control input-md" path="password"  id="password" type="password" placeholder="Password"/>
+				<form:input class="form-control input-md" path="password" type="password" placeholder="Password"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="passwordConfirm">Password(Confirm)</label>  
+			<label class="col-md-4 control-label" for="passwordConfirm">Password(Confirm):</label>  
 			<div class="col-md-4">
-				${err} 
+				${errorConfirmPassword} 
 				<form:errors path="passwordConfirm" cssClass="error"/>
-				<form:input class="form-control input-md" path="passwordConfirm" id="passwordConfirm" type="password" placeholder="Password(Confirm)"/>
+				<form:input class="form-control input-md" path="passwordConfirm" type="password" placeholder="Password(Confirm)"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="name">Name:</label>  
+			<div class="col-md-4">
+				<form:errors path="name" cssClass="error"/>
+				<form:input class="form-control input-md" path="name" placeholder="Name"/>
 			</div>
 		</div>
 		
@@ -81,21 +81,21 @@
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="street">Street:</label>  
 			<div class="col-md-4">
-				<form:input class="form-control input-md" path="street" id="street" placeholder="Street"/>
+				<form:input class="form-control input-md" path="street" placeholder="Street"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="zipCode">Zip Code:</label>  
 			<div class="col-md-4">
-				<form:input class="form-control input-md" path="zipCode" id="zipCode" placeholder="Zip Code"/>
+				<form:input class="form-control input-md" path="zipCode" placeholder="Zip Code"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="city">City:</label>  
 			<div class="col-md-4">
-				<form:input class="form-control input-md" path="city" id="city" placeholder="City"/>
+				<form:input class="form-control input-md" path="city" placeholder="City"/>
 			</div>
 		</div>
 		
@@ -114,7 +114,7 @@
 		   <div class="col-md-4">
 				<button type="submit" id="registration" class="btn btn-primary form-control input-md">Registration</button>
 		   </div>
-		</div>
+		</div> 
 	  </form:form>
 	</div>
 </body>

@@ -10,38 +10,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import currencyConverter.com.model.Registration;
-import currencyConverter.com.service.RegistrationService;
+import currencyConverter.com.model.User;
+import currencyConverter.com.service.UserService;
 import currencyConverter.enums.CountryEnum;
 
 @Controller
 public class RegistrationController {
+	
 	public static final String CONFIRM_PASSWORD_ERROR = "Please confirm your password!";
-
+	public static final String MAIL_DOUBLED_ERROR = "Email already exists!"; 
+	
 	@Autowired
-	private RegistrationService registrationService;
+	private UserService userService;
 	
 	@RequestMapping("/registrationView")
 	public ModelAndView registrationView() {
-		
-		ModelAndView model = new ModelAndView("registrationView", "registration", new Registration());
+		ModelAndView model = new ModelAndView("registrationView", "user", new User());
 		model.addObject("countries", CountryEnum.values());
 		return model;
 	}
 	
 	@RequestMapping(value = "/addRegistration", method = RequestMethod.POST)
-	public ModelAndView addNewUser(@Valid @ModelAttribute("registration") Registration registration, BindingResult result) {
-		
-		ModelAndView model = new ModelAndView("registrationView");
+	public ModelAndView addNewUser(@Valid @ModelAttribute("user") User user, BindingResult result) {	
+		ModelAndView model = new ModelAndView("registrationView", "user", user);
 		model.addObject("countries", CountryEnum.values());
 		if (!result.hasErrors()) {
-			if (registration.getPassword().equals(registration.getPasswordConfirm())) {
-				registrationService.save(registration);
-				model = new ModelAndView("loginView");
+			if (!userService.userAlreadyRegistered(user.getMail())) {
+				if (user.getPassword().equals(user.getPasswordConfirm())) {
+					userService.save(user);
+					model = new ModelAndView("loginView");
+				} else {
+					model.addObject("errorConfirmPassword", CONFIRM_PASSWORD_ERROR);
+				}
 			} else {
-				model.addObject("err", CONFIRM_PASSWORD_ERROR);
+				model.addObject("errorMailDoubled", MAIL_DOUBLED_ERROR);
 			}
 		}
 		return model;
 	}
+	
 }

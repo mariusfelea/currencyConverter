@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html lang="en">
@@ -89,7 +90,7 @@
 			<table class="table table-hover">
 				<thead>
 		    	<tr>
-					<th>User Name</th>
+					<th>User Mail</th>
 					<th>From Currency</th>
 					<th>Amount</th>
 					<th>To Currency</th>
@@ -100,12 +101,12 @@
 			<tbody>
 			<c:forEach var="rateConverter" items="${getRatesConverter}" varStatus="counter">	
 				<tr>
-					<td></td>
+					<td>${rateConverter.userMail}</td>
 					<td>${rateConverter.fromCurrency}</td>
 					<td>${rateConverter.amount}</td>
 					<td>${rateConverter.toCurrency}</td>
 					<td>${rateConverter.convertedAmount}</td>
-					<td></td>
+					<td>${rateConverter.date}</td>
 			  	</tr>
 		  	</c:forEach>
 			</tbody>

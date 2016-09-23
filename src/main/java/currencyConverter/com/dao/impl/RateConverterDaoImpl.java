@@ -17,25 +17,28 @@ import currencyConverter.com.util.CustomHibernateDaoSupport;
 public class RateConverterDaoImpl extends CustomHibernateDaoSupport implements RateConverterDao {
 
 	public final static int MAX_ROW = 10;
-	
+
 	@Override
 	public void save(RateConverter rateConverter) {
 		getHibernateTemplate().save(rateConverter);
 	}
 
 	@Override
-	public List<RateConverter> getRatesConverter() {
+	public List<RateConverter> getRatesConverter(final RateConverter rateConverter) {
 		@SuppressWarnings("unchecked")
-		List<RateConverter> ratesConverter = (List<RateConverter>) getHibernateTemplate().execute(new HibernateCallback<Object>() {
+		List<RateConverter> ratesConverter = (List<RateConverter>) getHibernateTemplate()
+				.execute(new HibernateCallback<Object>() {
 
-			@Override
-			public Object doInHibernate(Session session) throws HibernateException, SQLException {
-				StringBuilder hql = new StringBuilder();
-				hql.append("select rateconverter from RateConverter rateconverter order by id desc");
-				Query query = session.createQuery(hql.toString());
-				return query.setMaxResults(MAX_ROW).list();
-			}
-		});
+					@Override
+					public Object doInHibernate(Session session) throws HibernateException, SQLException {
+						StringBuilder hql = new StringBuilder();
+						hql.append(
+								"select rateconverter from RateConverter rateconverter where rateconverter.userMail = :userMail order by id desc");
+						Query query = session.createQuery(hql.toString());
+						query.setParameter("userMail", rateConverter.getUserMail());
+						return query.setMaxResults(MAX_ROW).list();
+					}
+				});
 		return ratesConverter;
 	}
 

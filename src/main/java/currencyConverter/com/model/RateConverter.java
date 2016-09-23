@@ -16,9 +16,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "rateconverter", catalog = "currencyconverter")
 public class RateConverter {
+	
 	private Integer id;
 	private String base;
 	private String date;
+	private String userMail;
 	private Map<String, Double> rates;
 	private String fromCurrency;
 	private String toCurrency;
@@ -47,13 +49,22 @@ public class RateConverter {
 		this.base = base;
 	}
 
-	@Transient
+	@Column(name = "date")
 	public String getDate() {
 		return date;
 	}
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	@Column(name = "usermail")
+	public String getUserMail() {
+		return userMail;
+	}
+
+	public void setUserMail(String userMail) {
+		this.userMail = userMail;
 	}
 
 	@Transient

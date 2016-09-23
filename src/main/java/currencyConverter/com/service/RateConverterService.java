@@ -1,12 +1,16 @@
 package currencyConverter.com.service;
 
 import java.util.List;
+import java.util.Set;
 
 import currencyConverter.com.model.RateConverter;
 
 public interface RateConverterService {
-	
+
 	void save(RateConverter rateConverter);
 	
-	List<RateConverter> getRatesConverter();
+	Set<String> getCurrencies();
+
+	List<RateConverter> getRatesConverter(RateConverter rateConverter);
+	
 }

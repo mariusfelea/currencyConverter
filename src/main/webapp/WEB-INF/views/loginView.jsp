@@ -49,9 +49,9 @@
 		</div>	  
 		
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="registration"></label>
+			<label class="col-md-4 control-label" for="login"></label>
 			<div class="col-md-4">
-				<button type="submit" id="registration" class="btn btn-primary form-control input-md">Login</button>
+				<button type="submit" id="login" class="btn btn-primary form-control input-md">Login</button>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</div>
 		</div>							

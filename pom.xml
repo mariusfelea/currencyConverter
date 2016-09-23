@@ -100,7 +100,7 @@
 	    <artifactId>hibernate-validator</artifactId>
 	    <version>5.0.1.Final</version>
 	 </dependency>
-	 
+	
 	 <!-- MySQL database driver -->
 	<dependency>
 		<groupId>mysql</groupId>
